@@ -10,6 +10,9 @@
     "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
     "module": "esnext", // add this line
+    "paths": {
+      "*": ["./src/*"]
+    }
   },
   "ts-node": {
     "compilerOptions": {
