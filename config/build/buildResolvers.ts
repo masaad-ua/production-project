@@ -1,5 +1,5 @@
-import {ResolveOptions} from "node:dns";
-import {BuildOptions} from "./types/config";
+import path from 'path';
+import { BuildOptions } from './types/config';
 
 export function buildResolvers(options: BuildOptions) {
     return {
@@ -7,6 +7,13 @@ export function buildResolvers(options: BuildOptions) {
         preferAbsolute: true,
         modules: [options.paths.src, 'node_modules'],
         mainFiles: ['index'],
-        alias: {}
-    }
+        alias: {
+            shared: path.resolve(__dirname, 'src/shared'),
+            app: path.resolve(__dirname, 'src/app'),
+            widgets: path.resolve(__dirname, 'src/widgets'),
+            features: path.resolve(__dirname, 'src/features'),
+            entities: path.resolve(__dirname, 'src/entities'),
+            pages: path.resolve(__dirname, 'src/pages'),
+        },
+    };
 }
