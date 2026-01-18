@@ -1,13 +1,3 @@
-import React from 'react';
-
-declare module '*.scss' {
-    interface IClassNames {
-        [className: string]: string
-    }
-    const classnames: IClassNames;
-    export = classnames;
-}
-
 declare module '*.module.scss' {
     const classes: Record<string, string>;
     export default classes;
@@ -23,9 +13,17 @@ declare module '*.module.css' {
     export default classes;
 }
 
+declare module '*.scss' {
+    const classes: Record<string, string>;
+    export default classes;
+}
+
+// SVGR: import Icon from './icon.svg' -> React component
 declare module '*.svg' {
-    const content: React.FunctionComponent<React.SVGAttributes<SVGElement>>;
-    export default content;
+    import * as React from 'react';
+
+    const ReactComponent: React.FC<React.SVGProps<SVGSVGElement>>;
+    export default ReactComponent;
 }
 
 declare const __IS_DEV__: boolean;

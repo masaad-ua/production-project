@@ -1,4 +1,3 @@
-import path from 'path';
 import { BuildOptions } from './types/config';
 
 export function buildResolvers(options: BuildOptions) {
@@ -7,13 +6,6 @@ export function buildResolvers(options: BuildOptions) {
         preferAbsolute: true,
         modules: [options.paths.src, 'node_modules'],
         mainFiles: ['index'],
-        alias: {
-            shared: path.resolve(__dirname, 'src/shared'),
-            app: path.resolve(__dirname, 'src/app'),
-            widgets: path.resolve(__dirname, 'src/widgets'),
-            features: path.resolve(__dirname, 'src/features'),
-            entities: path.resolve(__dirname, 'src/entities'),
-            pages: path.resolve(__dirname, 'src/pages'),
-        },
+        alias: {},
     };
 }
