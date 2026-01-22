@@ -14,9 +14,10 @@ export const ErrorPage = ({ className }: ErrorPageProps) => {
         // eslint-disable-next-line no-restricted-globals
         location.reload();
     };
+
     return (
         <div className={classNames(cls.ErrorPage, {}, [className])}>
-            <p>{t('Произошла ошибка')}</p>
+            <p>{t('Произошла непредвиденная ошибка')}</p>
             <Button onClick={reloadPage}>
                 {t('Обновить страницу')}
             </Button>
