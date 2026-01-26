@@ -1,29 +1,19 @@
-declare module '*.module.scss' {
-    const classes: Record<string, string>;
-    export default classes;
-}
-
-declare module '*.module.sass' {
-    const classes: Record<string, string>;
-    export default classes;
-}
-
-declare module '*.module.css' {
-    const classes: Record<string, string>;
-    export default classes;
-}
-
 declare module '*.scss' {
-    const classes: Record<string, string>;
-    export default classes;
+    interface IClassNames {
+        [className: string]: string
+    }
+    const classNames: IClassNames;
+    export = classNames;
 }
 
-// SVGR: import Icon from './icon.svg' -> React component
+declare module '*.png';
+declare module '*.jpg';
+declare module '*.jpeg';
 declare module '*.svg' {
-    import * as React from 'react';
+    import React from 'react';
 
-    const ReactComponent: React.FC<React.SVGProps<SVGSVGElement>>;
-    export default ReactComponent;
+    const SVG: React.VFC<React.SVGProps<SVGSVGElement>>;
+    export default SVG;
 }
 
 declare const __IS_DEV__: boolean;
