@@ -1,7 +1,15 @@
 {
   "Cтраница не найдена": "Cтраница не найдена",
   "Cтраницаа не найдена": "Cтраницаа не найдена",
+  "Lorem ipsum dolor sit amet, consectetur adipisicing elit": {
+    " Aliquid commodi consequatur eligendi impedit incidunt necessitatibus possimus quis saepe sunt totam": {
+      "": ""
+    }
+  },
+  "decrement": "decrement",
+  "increment": "increment",
   "throw error": "throw error",
+  "Войти": "Войти",
   "Главная": "Главная",
   "Главная страница": "Главная страница",
   "О сайте": "О сайте",
