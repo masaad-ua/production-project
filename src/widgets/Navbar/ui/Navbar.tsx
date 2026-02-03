@@ -1,6 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { Modal } from 'shared/ui/Modal/Modal';
 import React, { useCallback, useState } from 'react';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { LoginModal } from 'features/AuthByUsername';
@@ -40,10 +39,6 @@ export const Navbar = ({ className }: NavbarProps) => {
                 >
                     {t('Выйти')}
                 </Button>
-                <LoginModal
-                    isOpen={isAuthModal}
-                    onClose={onCloseModal}
-                />
             </div>
         );
     }
@@ -57,10 +52,12 @@ export const Navbar = ({ className }: NavbarProps) => {
             >
                 {t('Войти')}
             </Button>
-            <LoginModal
-                isOpen={isAuthModal}
-                onClose={onCloseModal}
-            />
+            {isAuthModal && (
+                <LoginModal
+                    isOpen={isAuthModal}
+                    onClose={onCloseModal}
+                />
+            )}
         </div>
     );
 };
