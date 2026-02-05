@@ -8,6 +8,7 @@
     "moduleResolution": "node",
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
+    "strict": true,
     "baseUrl": ".",
     "module": "esnext", // add this line
     "paths": {
