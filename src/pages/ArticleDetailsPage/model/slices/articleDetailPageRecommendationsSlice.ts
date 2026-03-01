@@ -5,19 +5,23 @@ import { StateSchema } from 'app/providers/StoreProvider';
 import {
     fetchCommentsByArticleId,
 } from 'pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
+import {
+    ArticleDetailsRecommendationsSchema,
+} from 'pages/ArticleDetailsPage/model/types/ArticleDetailsRecommendationsSchema';
 import { ArticleDetailsCommentsSchema } from '../types/ArticleDetailsCommentsSchema';
+import {Article} from "entities/Article";
 
-const commentsAdapter = createEntityAdapter<Comment>({
-    selectId: (comment) => comment.id,
+const recommendationsAdapter = createEntityAdapter<Article>({
+    selectId: (article) => article.id,
 });
 
-export const getArticleComments = commentsAdapter.getSelectors<StateSchema>(
-    (state) => state.articleDetailsPage?.comments || commentsAdapter.getInitialState(),
+export const getArticleComments = recommendationsAdapter.getSelectors<StateSchema>(
+    (state) => state.articleDetailsComments || recommendationsAdapter.getInitialState(),
 );
 
-const articleDetailsCommentsSlice = createSlice({
+const articleDetailPageRecommendationsSlice = createSlice({
     name: 'articleDetailsCommentsSlice',
-    initialState: commentsAdapter.getInitialState<ArticleDetailsCommentsSchema>({
+    initialState: recommendationsAdapter.getInitialState<ArticleDetailsRecommendationsSchema>({
         isLoading: false,
         error: undefined,
         ids: [],
@@ -35,7 +39,7 @@ const articleDetailsCommentsSlice = createSlice({
                 action: PayloadAction<Comment[]>,
             ) => {
                 state.isLoading = false;
-                commentsAdapter.setAll(state, action.payload);
+                recommendationsAdapter.setAll(state, action.payload);
             })
             .addCase(fetchCommentsByArticleId.rejected, (state, action) => {
                 state.isLoading = false;
@@ -44,4 +48,4 @@ const articleDetailsCommentsSlice = createSlice({
     },
 });
 
-export const { reducer: articleDetailsCommentsReducer } = articleDetailsCommentsSlice;
+export const { reducer: articleDetailPageRecommendationsReducer } = articleDetailPageRecommendationsSlice;
