@@ -8,8 +8,8 @@ import {
 import {
     ArticleDetailsRecommendationsSchema,
 } from 'pages/ArticleDetailsPage/model/types/ArticleDetailsRecommendationsSchema';
+import { Article } from 'entities/Article';
 import { ArticleDetailsCommentsSchema } from '../types/ArticleDetailsCommentsSchema';
-import {Article} from "entities/Article";
 
 const recommendationsAdapter = createEntityAdapter<Article>({
     selectId: (article) => article.id,
