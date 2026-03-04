@@ -50,7 +50,9 @@ module.exports = {
                     'justify',
                     'align',
                     'direction',
-                    'gap'],
+                    'gap',
+                    'role'
+                ],
             },
         ],
         'max-len': ['error', { ignoreComments: true, code: 130 }],
