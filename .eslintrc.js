@@ -22,6 +22,7 @@ module.exports = {
         '@typescript-eslint',
         'i18next',
         'react-hooks',
+        'osa-plugin',
     ],
     rules: {
         'react/jsx-indent': [2, 4],
@@ -33,7 +34,6 @@ module.exports = {
         ],
         'import/no-unresolved': 'off',
         'import/prefer-default-export': 'off',
-        'no-unused-vars': 'warn',
         'react/require-default-props': 'off',
         'react/react-in-jsx-scope': 'off',
         'react/jsx-props-no-spreading': 'warn',
@@ -59,6 +59,9 @@ module.exports = {
         'no-undef': 'off',
         'react/no-array-index-key': 'off',
         'arrow-body-style': 'off',
+        'osa-plugin/path-checker': 'error',
+        'no-unused-vars': 'off',
+        '@typescript-eslint/no-unused-vars': 'error',
     },
     globals: {
         __IS_DEV__: true,
