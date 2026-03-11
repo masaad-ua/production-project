@@ -11,6 +11,7 @@
     "strict": true,
     "baseUrl": ".",
     "module": "esnext", // add this line
+    "isolatedModules": true,
     "paths": {
       "*": ["./src/*"]
     }
