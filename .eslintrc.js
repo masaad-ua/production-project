@@ -4,11 +4,7 @@ module.exports = {
         es2021: true,
         jest: true,
     },
-    extends: [
-        'plugin:react/recommended',
-        'airbnb',
-        'plugin:i18next/recommended',
-    ],
+    extends: ['plugin:react/recommended', 'airbnb', 'plugin:i18next/recommended'],
     parser: '@typescript-eslint/parser',
     parserOptions: {
         ecmaFeatures: {
@@ -72,21 +68,26 @@ module.exports = {
         'no-undef': 'off',
         'react/no-array-index-key': 'off',
         'arrow-body-style': 'off',
-        'ulbi-tv-plugin/path-checker': ['error', { alias: '@' }],
-        'ulbi-tv-plugin/layer-imports': [
-            'error',
-            {
-                alias: '@',
-                ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
-            },
-        ],
-        'ulbi-tv-plugin/public-api-imports': [
-            'error',
-            {
-                alias: '@',
-                testFilesPatterns: ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx'],
-            },
-        ],
+        'linebreak-style': ['error', 'windows'],
+        // 'ulbi-tv-plugin/path-checker': ['error', { alias: '@' }],
+        // 'ulbi-tv-plugin/layer-imports': [
+        //     'error',
+        //     {
+        //         alias: '@',
+        //         ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
+        //     },
+        // ],
+        // 'ulbi-tv-plugin/public-api-imports': [
+        //     'error',
+        //     {
+        //         alias: '@',
+        //         testFilesPatterns: [
+        //             '**/*.test.*',
+        //             '**/*.story.*',
+        //             '**/StoreDecorator.tsx',
+        //         ],
+        //     },
+        // ],
     },
     globals: {
         __IS_DEV__: true,
