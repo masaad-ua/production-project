@@ -1,6 +1,8 @@
-const { BuildPaths } = require('../build/types/config');
-const { buildCssLoader } = require('../build/loaders/buildCssLoader');
-module.exports = {
+import { Configuration, DefinePlugin, RuleSetRule } from 'webpack';
+import path from 'path';
+import { buildCssLoader } from '../build/loaders/buildCssLoader';
+
+export default {
     stories: [
         '../../src/**/*.stories.@(js|jsx|ts|tsx)',
     ],
@@ -13,17 +15,15 @@ module.exports = {
             },
         },
         '@storybook/addon-interactions',
-        'storybook-addon-mock/register',
+        'storybook-addon-mock',
         'storybook-addon-themes',
     ],
     framework: '@storybook/react',
     core: {
         builder: 'webpack5',
     },
-
-    // ... other Storybook configurations (stories, addons, etc.)
-    webpackFinal: async (config, { configType }) => {
-        const paths: BuildPaths = {
+    webpackFinal: async (config: Configuration) => {
+        const paths = {
             build: '',
             html: '',
             entry: '',
@@ -36,11 +36,10 @@ module.exports = {
         config!.resolve!.alias = {
             ...config!.resolve!.alias,
             '@': paths.src,
-    };
+        };
 
-        // eslint-disable-next-line no-param-reassign
         // @ts-ignore
-        config!.module!.rules = config.module!.rules!.map((rule: RuleSetRule) => {
+        config!.module!.rules = config!.module!.rules!.map((rule: RuleSetRule) => {
             if (/svg/.test(rule.test as string)) {
                 return { ...rule, exclude: /\.svg$/i };
             }
@@ -59,6 +58,7 @@ module.exports = {
             __API__: JSON.stringify('https://testapi.ru'),
             __PROJECT__: JSON.stringify('storybook'),
         }));
+        // Return the altered config
         return config;
     },
 };
